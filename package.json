@@ -1,6 +1,17 @@
 {
   "name": "use-identification-number",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/use-identification-number.umd.js",
+  "module": "dist/use-identification-number.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/use-identification-number.mjs",
+      "require": "./dist/use-identification-number.umd.js"
+    }
+  },
   "private": true,
   "scripts": {
     "dev": "vite",
