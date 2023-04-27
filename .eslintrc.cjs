@@ -58,5 +58,6 @@ module.exports = {
         }],
         'vue/multi-word-component-names': 0,
         'vue/require-default-prop': 0,
+        'brace-style': ['error', 'allman'],
     },
 }
