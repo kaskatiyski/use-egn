@@ -1,15 +1,15 @@
 {
-  "name": "use-identification-number",
+  "name": "use-egn",
   "version": "1.0.0",
   "files": [
     "dist"
   ],
-  "main": "dist/use-identification-number.umd.js",
-  "module": "dist/use-identification-number.mjs",
+  "main": "dist/use-egn.umd.js",
+  "module": "dist/use-egn.mjs",
   "exports": {
     ".": {
-      "import": "./dist/use-identification-number.mjs",
-      "require": "./dist/use-identification-number.umd.js"
+      "import": "./dist/use-egn.mjs",
+      "require": "./dist/use-egn.umd.js"
     }
   },
   "private": true,

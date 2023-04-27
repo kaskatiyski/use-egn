@@ -10,8 +10,8 @@ export default defineConfig({
     build: {
         lib: {
             entry: path.resolve(__dirname, './src/index.ts'),
-            name: 'use-identification-number',
-            fileName: 'use-identification-number',
+            name: 'use-egn',
+            fileName: 'use-egn',
         },
         rollupOptions: {
             external: ['vue'],
