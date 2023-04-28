@@ -20,23 +20,25 @@ function isEgnValid(egn: MaybeEgn): boolean
         return false
     }
 
-    let egnNumber = Number(egn)
-    const egnControlDigit = Number(egn.substring(9, 10))
-    let egnSum = 0
 
-    egnNumber /= 10
-    for (let i = weights.length - 1; i > -1; --i, egnNumber /= 10)
+    // Multiply the first 9 digits of the EGN with the corresponding weights
+    let checkSum = 0
+    for (let i = 0; i < weights.length; i++)
     {
-        egnSum += (Math.floor(egnNumber) % 10) * weights[i]
+        checkSum += Number(egn[i]) * weights[i]
     }
 
-    let checkSum = egnSum % 11
-    if (checkSum === 10) 
+    // Divide the result by 11 and get the remainder
+    let remainder = checkSum % 11
+
+    // Use the remainder if it is less than 10, otherwise use 0
+    if (remainder === 10)
     {
-        checkSum = 0
+        remainder = 0
     }
 
-    return checkSum === egnControlDigit
+    // Compare the remainder with the control digit of the EGN
+    return remainder === Number(egn.substring(9, 10))
 }
 
 /**
@@ -94,6 +96,7 @@ export default function useEgn(identificationNumber: MaybeEgn | Ref<MaybeEgn>)
             return false
         }
 
+        // If the 9th digit is even, the EGN belongs to a male
         const genderDigit = Number(unref(identificationNumber as string).substring(8, 9))
         return genderDigit % 2 === 0
     })
