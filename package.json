@@ -12,7 +12,6 @@
       "require": "./dist/use-egn.umd.js"
     }
   },
-  "private": true,
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
