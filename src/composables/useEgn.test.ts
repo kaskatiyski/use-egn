@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import useEgn from '@/composables/useEgn'
+import { useEgn } from '@/composables/useEgn'
 
 describe('egn validation', () => 
 {

@@ -4,7 +4,7 @@ import { validateDate } from '@/utils/validateDate'
 
 const weights = [2, 4, 8, 5, 10, 9, 7, 3, 6]
 
-type MaybeEgn = string | null | undefined
+export type MaybeEgn = string | null | undefined
 
 function isEgnValid(egn: MaybeEgn): boolean
 {
@@ -75,7 +75,7 @@ function getEgnBirthday(egn: string): Date | null
     return new Date(year, month - 1, day)
 }
 
-export default function useEgn(identificationNumber: MaybeEgn | Ref<MaybeEgn>)
+export function useEgn(identificationNumber: MaybeEgn | Ref<MaybeEgn>)
 {
     const isValid = computed<boolean>(() => isEgnValid(unref(identificationNumber)))
 
