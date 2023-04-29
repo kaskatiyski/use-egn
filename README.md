@@ -18,3 +18,14 @@ const egn = ref('')
 
 const { isValid, birthday, isMale, isFemale } = useEgn(egn)
 ```
+
+## Component usage
+
+```vue
+<use-egn 
+    v-slot="{ isValid, birthday, isMale, isFemale }"
+    :egn="egn" 
+>
+The person was born on {{ birthday }}!
+</use-egn>
+```
