@@ -1,7 +1,7 @@
 {
   "name": "use-egn",
   "description": "Vue composable for parsing Bulgarian personal identification numbers (EGN)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "files": [
     "dist"
   ],
