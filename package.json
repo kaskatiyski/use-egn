@@ -1,5 +1,6 @@
 {
   "name": "use-egn",
+  "description": "Vue composable for parsing Bulgarian personal identification numbers (EGN)",
   "version": "1.0.0",
   "files": [
     "dist"
@@ -11,6 +12,11 @@
       "import": "./dist/use-egn.mjs",
       "require": "./dist/use-egn.umd.js"
     }
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kaskatiyski/use-egn.git"
   },
   "scripts": {
     "dev": "vite",
