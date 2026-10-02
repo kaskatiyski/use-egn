@@ -8,7 +8,7 @@ npm i use-egn
 
 ## Usage
 
-The egn parameter can be either a string or a ref.
+The egn parameter can be a string, a ref or a computed.
 
 ```js
 import { ref } from 'vue';

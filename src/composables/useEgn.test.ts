@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest'
+import { computed, ref } from 'vue'
 import { useEgn, isValidEgn } from '@/composables/useEgn'
 
 describe('egn validation', () => 
@@ -147,5 +148,37 @@ describe('gender', () =>
 
         expect(isMale.value).toBeFalsy()
         expect(isFemale.value).toBeFalsy()
+    })
+})
+
+describe('input types', () =>
+{
+    it('accepts a ref and reacts to changes', () =>
+    {
+        const egn = ref<string | null>('0000000000')
+
+        const { isValid, birthday } = useEgn(egn)
+
+        expect(isValid.value).toBe(false)
+
+        egn.value = '1107223104'
+
+        expect(isValid.value).toBe(true)
+        expect(birthday.value).toEqual(new Date(1911, 6, 22))
+    })
+
+    it('accepts a computed and reacts to changes', () =>
+    {
+        const egn = ref<string | null>('0000000000')
+        const getEgn = computed(() => egn.value)
+
+        const { isValid, isFemale } = useEgn(getEgn)
+
+        expect(isValid.value).toBe(false)
+
+        egn.value = '2402152757'
+
+        expect(isValid.value).toBe(true)
+        expect(isFemale.value).toBe(true)
     })
 })
