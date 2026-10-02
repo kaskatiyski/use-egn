@@ -9,9 +9,16 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const data = computed(() => useEgn(props.egn))
+const getEgn = computed(() => props.egn)
+
+const { isValid, birthday, isMale, isFemale } = useEgn(getEgn)
 </script>
 
 <template>
-    <slot v-bind="data" />
+    <slot
+        :is-valid="isValid"
+        :birthday="birthday"
+        :is-male="isMale"
+        :is-female="isFemale"
+    />
 </template>
