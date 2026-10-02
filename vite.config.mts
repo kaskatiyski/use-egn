@@ -4,18 +4,16 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
 
-const path = require('path')
-
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [vue(), dts()],
+    plugins: [vue(), dts({ tsconfigPath: './tsconfig.app.json', entryRoot: 'src' })],
     build: {
         lib: {
-            entry: path.resolve(__dirname, './src/index.ts'),
+            entry: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
             name: 'use-egn',
             fileName: (format) => `index.${format}.js`,
         },
-        rollupOptions: {
+        rolldownOptions: {
             external: ['vue'],
             output: {
                 globals: {
