@@ -6,7 +6,7 @@ const weights = [2, 4, 8, 5, 10, 9, 7, 3, 6]
 
 export type MaybeEgn = string | null | undefined
 
-function isEgnValid(egn: MaybeEgn): boolean
+export function isValidEgn(egn: MaybeEgn): boolean
 {
     // Check if EGN input is 10 digits
     if (!egn || egn.length !== 10 || !/^\d+$/.test(egn))
@@ -77,7 +77,7 @@ function getEgnBirthday(egn: string): Date | null
 
 export function useEgn(identificationNumber: MaybeEgn | Ref<MaybeEgn>)
 {
-    const isValid = computed<boolean>(() => isEgnValid(unref(identificationNumber)))
+    const isValid = computed<boolean>(() => isValidEgn(unref(identificationNumber)))
 
     const birthday = computed<Date | null>(() => 
     {

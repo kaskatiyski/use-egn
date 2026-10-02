@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { useEgn } from '@/composables/useEgn'
+import { useEgn, isValidEgn } from '@/composables/useEgn'
 
 describe('egn validation', () => 
 {
@@ -35,6 +35,36 @@ describe('egn validation', () =>
         const { isValid } = useEgn(validEgn)
 
         expect(isValid.value).toBeTruthy()
+    })
+})
+
+describe('isValidEgn', () =>
+{
+    it('returns false for empty input', () =>
+    {
+        expect(isValidEgn(null)).toBe(false)
+        expect(isValidEgn(undefined)).toBe(false)
+        expect(isValidEgn('')).toBe(false)
+    })
+
+    it('returns false for invalid EGN', () =>
+    {
+        const invalidEgns = ['1234567890', '5232212332', '004212', '0000000000', '130805656a']
+
+        for (const invalidEgn of invalidEgns)
+        {
+            expect(isValidEgn(invalidEgn)).toBe(false)
+        }
+    })
+
+    it('returns true for valid EGN', () =>
+    {
+        const validEgns = ['1308056565', '1107223104', '9949032774']
+
+        for (const validEgn of validEgns)
+        {
+            expect(isValidEgn(validEgn)).toBe(true)
+        }
     })
 })
 
